@@ -1,0 +1,584 @@
+/* Variáveis CSS */
+:root {
+    --primary-color: rgb(252, 234, 32);
+    /* Amarelo */
+    --primary-hover: rgb(220, 200, 20);
+    --secondary-color: rgb(18, 37, 56);
+    /* Azul Escuro */
+    --secondary-hover: rgb(10, 25, 40);
+    --text-color: #333;
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --transition-speed: 0.3s;
+    --container-width: 1200px;
+    --font-main: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reset e Estilos Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-speed);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-speed) ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Cabeçalho */
+.site-header {
+    background-color: var(--secondary-color);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav a {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width var(--transition-speed);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+.btn-contact {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 20px !important;
+    border-radius: 20px;
+}
+
+.btn-contact:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color) !important;
+}
+
+.nav-toggle-input {
+    display: none;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+
+/* Seção Hero */
+.hero-section {
+    height: 90vh;
+    background-image: url('https://cacs-cairbarschutel.org.br/wp-content/uploads/2023/01/Home-CACS.jpeg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 37, 56, 0.7), rgba(18, 37, 56, 0.5));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Seção de Impacto */
+.impact-section {
+    background-color: var(--bg-white);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-card {
+    padding: 40px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition-speed);
+    border: 1px solid #eee;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+}
+
+.stat-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+/* Layout Dividido (Sobre e CDI) */
+.split-layout {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.split-layout.reverse {
+    flex-direction: row-reverse;
+}
+
+.image-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.image-wrapper img {
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.text-wrapper {
+    flex: 1;
+}
+
+.text-wrapper h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.text-wrapper p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Galeria / CEDESP */
+.gallery-section {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: center;
+}
+
+.gallery-item img {
+    border-radius: 10px;
+    transition: transform 0.4s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item.text-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.gallery-item.text-item h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+/* Chamada para Ação */
+.cta-section {
+    text-align: center;
+    background: linear-gradient(135deg, var(--bg-light) 0%, #fff 100%);
+}
+
+.links-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.link-item {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.link-item:hover {
+    color: var(--primary-color);
+    transform: translateX(10px);
+}
+
+/* Seção de Contato */
+.contact-section {
+    background-color: var(--bg-white);
+}
+
+.info-block {
+    flex: 1;
+    background-color: var(--bg-light);
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.info-block h4 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.badges {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.contact-form {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(252, 234, 32, 0.2);
+}
+
+/* Rodapé */
+.site-footer {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 5px solid var(--primary-color);
+}
+
+.site-footer p {
+    margin: 20px 0;
+    opacity: 0.8;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 992px) {
+
+    .split-layout,
+    .split-layout.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-block {
+        text-align: center;
+    }
+
+    .badges {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+        z-index: 1001;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--secondary-color);
+        padding-top: 80px;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .main-nav.active,
+    .nav-toggle-input:checked~.main-nav {
+        right: 0;
+    }
+
+    /* Animação do Hambúrguer ao Selecionar */
+    .nav-toggle-input:checked+.menu-toggle span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .nav-toggle-input:checked+.menu-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle-input:checked+.menu-toggle span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* Animações */
+/* Animações - Fallback Apenas CSS (Executar ao Carregar) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+/* Base state ensuring visibility if animation fails or for simple fallback */
+.fade-in-up,
+.fade-in-left,
+.fade-in-right {
+    opacity: 0;
+    /* Inicia oculto, animação revela */
+}
