@@ -199,7 +199,7 @@ section {
 /* Seção Hero */
 .hero-section {
     height: 90vh;
-    background-image: url('https://cacs-cairbarschutel.org.br/wp-content/uploads/2023/01/Home-CACS.jpeg');
+    background-image: url('hero-bg.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -246,7 +246,7 @@ section {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     text-align: center;
 }
@@ -264,12 +264,43 @@ section {
     transform: translateY(-10px);
 }
 
+@property --num {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+}
+
+@keyframes countUp {
+    from {
+        --num: 0;
+    }
+
+    to {
+        --num: var(--target);
+    }
+}
+
 .stat-number {
-    display: block;
+    display: inline-block;
     font-size: 3rem;
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    animation: countUp 4s ease-out forwards;
+    counter-reset: num var(--num);
+}
+
+.stat-number::after {
+    content: counter(num);
+}
+
+.stat-plus {
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-right: 5px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -298,6 +329,11 @@ section {
 .image-wrapper img {
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s;
+}
+
+.image-wrapper img:hover {
+    transform: scale(1.05);
 }
 
 .text-wrapper {
@@ -403,6 +439,14 @@ section {
     gap: 20px;
 }
 
+.badges img {
+    transition: transform 0.3s;
+}
+
+.badges img:hover {
+    transform: scale(1.1);
+}
+
 .contact-form {
     flex: 1.5;
     display: flex;
@@ -460,7 +504,8 @@ section {
         text-align: center;
     }
 
-    .gallery-grid {
+    .gallery-grid,
+    .stats-grid {
         grid-template-columns: 1fr;
     }
 
